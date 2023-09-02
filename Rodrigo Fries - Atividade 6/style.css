@@ -13,6 +13,8 @@ h1, h2{
 }
 
 h1{
+  margin-top: 0;
+  margin-bottom: 15px;
   font-size: 40px;
 }
 
@@ -20,9 +22,21 @@ h2{
   font-size: 30px;
 }
 
+hr{
+  height: 2px;
+  border-width: 2px;
+  border-color: brown;
+  background-color: brown;
+}
+
+.address{
+  margin-bottom: 5px;
+}
+
 body {
   font-family: sans-serif;
   background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
+  padding: 20px;
 }
 
 .menu {
@@ -32,6 +46,13 @@ body {
   margin-right: auto;
   padding: 20px;
   background-color: burlywood;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -25px;
 }
 
 .flavor, .dessert {
@@ -46,4 +67,33 @@ body {
 
 .item p {
   display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.margin-line{
+  margin-top: 25px;
+}
+
+/*FOOTER*/
+
+footer{
+  font-size: 14px;
+}
+
+a{
+  color: black;
+}
+
+a:visited{
+  color: black;
+}
+
+a:hover{
+  color: brown;
+}
+
+a:active{
+  color: brown;
 }
