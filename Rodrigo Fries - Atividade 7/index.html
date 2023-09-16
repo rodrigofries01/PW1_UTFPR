@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Atividade Web 7 - Calculadora</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>ATIVIDADE DE JAVASCRIPT</h1>
+        <label class="lblOpcoes">
+          <ol><a href="index.html">Cursos</a></ol>
+          <ol><a href="index.html">Calculadora</a></ol>
+          <ol><a href="index.html">Tabela</a></ol>
+        </label>
+      </header>
+
+      <div class="meio">
+        <center>
+          <div class="calc">
+            <h2>Calculadora</h2>
+            <div class="result">
+              <input type="text" id="result" name="resultado" placeholder="RESULTADO"
+                disabled>
+            </div>
+
+            <div class="sinais">
+              <table>
+                <tr>
+                  <td><button class="botao" onclick="insert('+')">+</button></td>
+                  <td><button class="botao" onclick="insert('-')">-</button></td>
+                </tr>
+                <tr>
+                  <td><button class="botao" onclick="insert('/')">/</button></td>
+                  <td><button class="botao" onclick="insert('*')">*</button></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </center>
+      </div>
+
+      <footer>
+        <p>Sistema desenvolvido por Rodrigo Fries - PW1</p>
+      </footer>
+
+    </div>
+
+  </body>
+
+</html>

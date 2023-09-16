@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.container {
+  text-align: center;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid red;
+  max-width: 780px;
+  height: 500px;
+  color: white;
+  background-color: rgb(194, 194, 194);
+}
+
+header {
+  height: 100px;
+  color: white;
+  background-color: dimgrey;
+  border: 1px solid green;
+}
+
+header h1 {
+  font-weight: 900;
+  padding: 10px;
+}
+
+.lblOpcoes {
+  height: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.lblOpcoes ol a{
+  border-radius: 5px;
+  font-size: 23px;
+  font-weight: 300;
+  width: 110%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  color: white;
+  background-color: rgb(63, 63, 63);
+  text-decoration: none;
+}
+
+.lblOpcoes ol a:hover {
+  background-color: rgb(141, 141, 141);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.meio{
+  width: 100%;
+  height: 300px;
+  border: 1px solid blue;
+}
+
+.calc{
+  margin: 50px;
+  width: 50%;
+  height: 200px;
+  border-radius: 5px;
+  border: 1px solid black;
+  
+}
+
+h2{
+  display: flex;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 30px;
+  color: black;
+}
+
+.calc .result {
+  display: flex;
+  justify-content: center;
+  margin: 10px 10px auto;
+}
+
+.calc .result input{
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  border-radius: 5px;
+  font-weight: 300;
+  font-size: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.calc .sinais{
+  border: 1px solid green;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.calc .sinais .botao{
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  cursor: pointer;
+  margin: 3px;
+  background-color: rgb(31, 31, 31);
+  border: none;
+  color: white;
+}
+
+
+footer{
+  padding: 40px;
+  background-color: dimgrey;
+}
+
+footer:hover{
+  font-weight: bolder;
+}
