@@ -22,23 +22,21 @@
       <div class="meio">
         <center>
           <div class="calc">
-            <h2>Calculadora</h2>
-            <div class="result">
-              <input type="text" id="result" name="resultado" placeholder="RESULTADO"
-                disabled>
-            </div>
+            <h2>CURSOS</h2>
 
-            <div class="sinais">
-              <table>
-                <tr>
-                  <td><button class="botao" onclick="insert('+')">+</button></td>
-                  <td><button class="botao" onclick="insert('-')">-</button></td>
-                </tr>
-                <tr>
-                  <td><button class="botao" onclick="insert('/')">/</button></td>
-                  <td><button class="botao" onclick="insert('*')">*</button></td>
-                </tr>
+            <div class="cursos">
+              <table class="tblCursos">
+                <p>CURSOS DISPONIVEIS</p>
+                <select name="cursos_disponiveis" id="cursos" multiple>
+                  <option value="js">JS</option>
+                  <option value="JQuery">JQuery</option>
+                  <option value="html">HTML</option>
+                  <option value="CSS">CSS</option>
+                  <option value="java">JAVA</option>
+                  <option value="c#">C#</option>
+                </select>
               </table>
+
             </div>
           </div>
         </center>
