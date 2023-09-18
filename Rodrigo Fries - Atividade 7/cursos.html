@@ -1,53 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Atividade Web 7 - Calculadora</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="container">
-      <header>
-        <h1>ATIVIDADE DE JAVASCRIPT</h1>
-        <label class="lblOpcoes">
-          <ol><a href="index.html">Cursos</a></ol>
-          <ol><a href="index.html">Calculadora</a></ol>
-          <ol><a href="index.html">Tabela</a></ol>
-        </label>
-      </header>
+        <header>
+            <h1>ATIVIDADE DE JAVASCRIPT</h1>
+            <label class="lblOpcoes">
+                <ol><a href="cursos.html">Cursos</a></ol>
+                <ol><a href="calculadora.html">Calculadora</a></ol>
+                <ol><a href="tabela.html">Tabela</a></ol>
+            </label>
+        </header>
 
-      <div class="meio">
-        <center>
-          <div class="calc">
-            <h2>CURSOS</h2>
+        <div class="meio">
+            <center>
+                <div class="calc">
+                    <h2>CURSOS</h2>
 
-            <div class="cursos">
-              <table class="tblCursos">
-                <p>CURSOS DISPONIVEIS</p>
-                <select name="cursos_disponiveis" id="cursos" multiple>
-                  <option value="js">JS</option>
-                  <option value="JQuery">JQuery</option>
-                  <option value="html">HTML</option>
-                  <option value="CSS">CSS</option>
-                  <option value="java">JAVA</option>
-                  <option value="c#">C#</option>
-                </select>
-              </table>
+                    <div class="cursos">
+                        <div class="tblCursos">
+                            <p>CURSOS DISPONIVEIS</p>
+                            <select name="cursos_disponiveis" class="list-cursos" multiple id="cursos-disponiveis">
+                                <option value="js">JS</option>
+                                <option value="JQuery">JQuery</option>
+                                <option value="html">HTML</option>
+                                <option value="CSS">CSS</option>
+                                <option value="java">JAVA</option>
+                                <option value="c#">C#</option>
+                            </select>
+                        </div>
 
-            </div>
-          </div>
-        </center>
-      </div>
+                        <div class="tblCursos">
+                            <p>CURSOS Escolhidos</p>
+                            <select name="cursos_disponiveis" class="list-cursos" multiple id="cursos-escolhidos">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </div>
 
-      <footer>
-        <p>Sistema desenvolvido por Rodrigo Fries - PW1</p>
-      </footer>
+        <footer>
+            <p>Sistema desenvolvido por Rodrigo Fries - PW1</p>
+        </footer>
 
     </div>
 
-  </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cursosDisponiveis = document.getElementById('cursos-disponiveis');
+            const cursosEscolhidos = document.getElementById('cursos-escolhidos');
+
+            cursosDisponiveis.addEventListener('click', function () {
+                const selectedOptions = Array.from(cursosDisponiveis.selectedOptions);
+
+                selectedOptions.forEach(option => {
+                    cursosEscolhidos.appendChild(option);
+                });
+            });
+
+            cursosEscolhidos.addEventListener('click', function () {
+                const selectedOptions = Array.from(cursosEscolhidos.selectedOptions);
+
+                selectedOptions.forEach(option => {
+                    cursosDisponiveis.appendChild(option);
+                });
+            });
+        });
+    </script>
+
+</body>
 
 </html>

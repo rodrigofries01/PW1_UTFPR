@@ -1,62 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Atividade Web 7 - Calculadora</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Atividade Web 7 - Calculadora</title>
+</head>
 
-  <body>
-    <div class="container">
-      <header>
-        <h1>ATIVIDADE DE JAVASCRIPT</h1>
-        <label class="lblOpcoes">
-          <ol><a href="cursos.html">Cursos</a></ol>
-          <ol><a href="calculadora.html">Calculadora</a></ol>
-          <ol><a href="cursos.html">Tabela</a></ol>
-        </label>
-      </header>
+<body>
+  <div class="container">
+    <header>
+      <h1>ATIVIDADE DE JAVASCRIPT</h1>
+      <label class="lblOpcoes">
+        <ol><a href="cursos.html">Cursos</a></ol>
+        <ol><a href="calculadora.html">Calculadora</a></ol>
+        <ol><a href="tabela.html">Tabela</a></ol>
+      </label>
+    </header>
 
-      <div class="meio">
-        <center>
-          <div class="calc">
-            <h2>Calculadora</h2>
+    <div class="meio">
+      <center>
+        <div class="calc">
+          <h2>Calculadora</h2>
+
+          <div class="sinais">
+            <input type="number" name="valor1" placeholder="1º Valor" id="val1">
+            <input type="number" name="valor2" placeholder="2º Valor" id="val2">
+
             <div class="result">
-              <input type="text" id="result" name="resultado"
-                placeholder="RESULTADO"
-                disabled>
+              <input type="text" id="result" name="resultado" placeholder="RESULTADO" disabled>
             </div>
 
-            <div class="sinais">
-              <input type="number" name="valor2" placeholder="1º Valor:"
-                id="val1">
-              <input type="number" name="valor1" placeholder="2º Valor:"
-                id="val2">
-
-              <table>
-
-                <tr>
-                  <tr>
-                    <td><button class="botao" onclick="insert('+')">+</button></td>
-                    <td><button class="botao" onclick="insert('-')">-</button></td>
-
-                    <td><button class="botao" onclick="insert('*')">x</button></td>
-                    <td><button class="botao" onclick="insert('/')">/</button></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </center>
+            <table>
+              <tr>
+                <td><button class="botao" onclick="insert('+')">+</button></td>
+                <td><button class="botao" onclick="insert('-')">-</button></td>
+                <td><button class="botao" onclick="insert('*')">*</button></td>
+                <td><button class="botao" onclick="insert('/')">/</button></td>
+                <td><button class="botao" onclick="calculate()">=</button></td>
+                <td><button class="botao" onclick="clearResult()">C</button></td>
+              </tr>
+            </table>
+          </div>
         </div>
+      </center>
+    </div>
 
-        <footer>
-          <p>Sistema desenvolvido por Rodrigo Fries - PW1</p>
-        </footer>
+    <footer>
+      <p>Sistema desenvolvido por Rodrigo Fries - PW1</p>
+    </footer>
 
-      </div>
+  </div>
 
-    </body>
+  <script>
+    let currentValue = '';
+    let currentOperator = '';
+    let resultDisplayed = false;
 
-  </html>
+    function updateResult() {
+      const resultField = document.getElementById('result');
+      resultField.value = currentValue;
+    }
+
+    function insert(value) {
+      if (resultDisplayed) {
+        currentValue = '';
+        resultDisplayed = false;
+      }
+
+      const val1 = parseFloat(document.getElementById('val1').value);
+      const val2 = parseFloat(document.getElementById('val2').value);
+
+      if (isNaN(val1) || isNaN(val2)) {
+        alert('Coloque os valores antes de selecionar uma operação.');
+        return;
+      }
+
+      currentValue += value;
+      updateResult();
+    }
+
+    function calculate() {
+      const val1 = parseFloat(document.getElementById('val1').value);
+      const val2 = parseFloat(document.getElementById('val2').value);
+
+      if (!isNaN(val1) && !isNaN(val2)) {
+        switch (currentValue) {
+          case '+':
+            currentValue = val1 + val2;
+            break;
+          case '-':
+            currentValue = val1 - val2;
+            break;
+          case '*':
+            currentValue = val1 * val2;
+            break;
+          case '/':
+            if (val2 !== 0) {
+              currentValue = val1 / val2;
+            } else {
+              currentValue = 'Erro (divisão por zero)';
+            }
+            break;
+          default:
+            currentValue = 'Erro';
+        }
+
+        updateResult();
+        resultDisplayed = true;
+      }
+    }
+
+    function clearResult() {
+      currentValue = '';
+      currentOperator = '';
+      document.getElementById('val1').value = ''; // Limpa o campo 1º Valor
+      document.getElementById('val2').value = ''; // Limpa o campo 2º Valor
+      updateResult();
+      resultDisplayed = false;
+    }
+</script>
+
+
+</body>
+
+</html>

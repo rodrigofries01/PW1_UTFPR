@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Atividade Web 7 - Calculadora</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>ATIVIDADE DE JAVASCRIPT</h1>
+      <label class="lblOpcoes">
+        <ol><a href="cursos.html">Cursos</a></ol>
+        <ol><a href="calculadora.html">Calculadora</a></ol>
+        <ol><a href="tabela.html">Tabela</a></ol>
+      </label>
+    </header>
+
+    <div class="meio">
+      <center>
+        <!-- Conteúdo da Tabela -->
+        <div class="calc">
+          <h2>CLIENTES</h2>
+
+          <div class="tabela">
+            <table>
+              <thead>
+                <tr class="table">
+                  <th>NOME</th>
+                  <th>TELEFONE</th>
+                  <th>EMAIL</th>
+                  <th>ENDEREÇO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>João</td>
+                  <td>(123) 456-7890</td>
+                  <td>joao@example.com</td>
+                  <td>Rua A, 123</td>
+                </tr>
+                <tr>
+                  <td>Maria</td>
+                  <td>(456) 789-0123</td>
+                  <td>maria@example.com</td>
+                  <td>Avenida B, 456</td>
+                </tr>
+                <!-- Adicione mais linhas conforme necessário -->
+              </tbody>
+            </table>
+          </div>
+          <button id="export-btn">EXPORTAR</button>
+          <textarea id="exported-data" readonly></textarea>
+          <button id="clear-btn">LIMPAR</button>
+        </div>
+      </center>
+    </div>
+
+    <footer>
+      <p>Sistema desenvolvido por Rodrigo Fries - PW1</p>
+    </footer>
+
+  </div>
+  <script>
+    // Função para alternar a classe "selected" ao clicar em uma linha
+    function toggleRowSelection(event) {
+      if (event.target.tagName === 'TD') {
+        const row = event.target.parentNode;
+        row.classList.toggle('selected');
+      }
+    }
+
+    // Adicione o evento de clique a todas as linhas da tabela
+    const rows = document.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+      row.addEventListener('click', toggleRowSelection);
+    });
+
+    document.getElementById('export-btn').addEventListener('click', function () {
+      // Obtenha as linhas selecionadas da tabela
+      const selectedRows = document.querySelectorAll('tbody tr.selected');
+
+      // Crie um array para armazenar os dados selecionados
+      const selectedData = [];
+
+      // Itere pelas linhas selecionadas e obtenha os dados das colunas
+      selectedRows.forEach(row => {
+        const cols = Array.from(row.querySelectorAll('td'));
+        const rowData = cols.map(col => col.textContent);
+        selectedData.push(rowData);
+      });
+
+      // Converte os dados selecionados em formato JSON
+      const jsonData = JSON.stringify(selectedData);
+
+      // Atualize o conteúdo da textarea com os dados exportados
+      const exportedDataTextarea = document.getElementById('exported-data');
+      exportedDataTextarea.value = jsonData;
+    });
+
+    document.getElementById('clear-btn').addEventListener('click', function () {
+      // Limpe a seleção das linhas
+      const selectedRows = document.querySelectorAll('tbody tr.selected');
+      selectedRows.forEach(row => {
+        row.classList.remove('selected');
+      });
+
+      // Limpe o conteúdo da textarea
+      const exportedDataTextarea = document.getElementById('exported-data');
+      exportedDataTextarea.value = '';
+    });
+  </script>
+
+</body>
+
+</html>
