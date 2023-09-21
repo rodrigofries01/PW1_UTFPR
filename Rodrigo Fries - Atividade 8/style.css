@@ -1,0 +1,33 @@
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header a.navbar-brand:hover {
+    color: #fff;
+}
+
+.sidebar {
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar a.nav-link {
+    color: #333;
+}
+
+.sidebar a.nav-link:hover {
+    color: #007bff;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+footer p {
+    margin-bottom: 0;
+    text-align: center;
+}
